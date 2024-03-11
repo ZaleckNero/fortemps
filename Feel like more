@@ -1,0 +1,22 @@
+// import necessary libraries
+import java.io.FileNotFoundException; 
+import java.io.FileReader; 
+import java.util.Scanner;
+
+// utilizing the file reader method to read a text file
+Scanner inputFile = new Scanner(new FileReader("C:\\Users\\Zack\\Documents\\NetBeansProjects\\A1.txt"));
+          
+// A loop to append or read text from the file to use it later.
+ while (inputFile.hasNext()) {
+        String A1 = inputFile.next();
+
+        
+        System.out.print(A1);
+        
+
+    }
+
+// A ".next" method will append the info
+
+// use append for textarea
+// use setText for textfield
