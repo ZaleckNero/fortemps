@@ -1,0 +1,75 @@
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.io.FileReader;
+import java.io.PrintWriter;
+import javax.swing.JOptionPane;
+
+  try{
+           Scanner inputFile = new Scanner(new FileReader("D:\\MidSum_Sazon\\A1.txt"));
+           PrintWriter outputFile = new PrintWriter("D:\\MidSum_Sazon\\A2.txt");
+           outputFile.close();
+            while(inputFile.hasNext()){
+                 
+                String AA1 = inputFile.next();
+                char AB1 = inputFile.next().charAt(0);
+                double AC1 =  inputFile.nextDouble();
+                
+                double BA1 = compute(AB1,AC1);
+                String usageType = getUsageType(AB1);
+
+                outputFile.println("\t"+AA1+"\t"+AB1+"\t"+AC1+"\t"+BA1+"\n\n");
+                monitor.append("\t"+AA1+"\t"+AB1+"\t"+AC1+"\t"+BA1+"\n\n");
+                 
+            }
+           
+            
+        }
+        catch(FileNotFoundException ex){
+            JOptionPane.showMessageDialog(null,"File does not exist.");
+        }
+        
+       
+        
+        
+    }                                    
+
+    
+    
+   public double compute (char code, double gal){
+       if (code == 'H'){
+    return 5.00 * 0.005 * gal; 
+       }
+       else if (code == 'C'){
+           if (gal <= 4000){
+               return 1000.00;
+           }
+           else{
+               return 1000.00 + 0.25 * (gal - 4000);
+           }
+       }
+       else if (code == 'I'){
+           if (gal <=4000){
+               return 1000.00;
+           } else if (gal <= 10000){
+               return 2000.00;
+           }else{
+               return 3000.00;
+           }
+       }else{
+           return 0;
+       }
+       
+   }
+    
+   private static String getUsageType(char us){
+       if (us =='H'){
+           return"Home";
+       } else if (us == 'C'){
+           return "Commercial";
+       } else if (us == 'I'){
+           return "Industrial";
+       }else{
+           return "Error";
+       }
+   }
+
